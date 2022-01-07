@@ -43,6 +43,8 @@
     "webpack-dev-server": "^4.4.0"
   },
   "dependencies": {
-    "rxjs": "^6.6.7"
+    "rxjs": "^6.6.7",
+    "pixi.js": "5.3.7",
+    "pixi3d": "1.1.1"
   }
 }
