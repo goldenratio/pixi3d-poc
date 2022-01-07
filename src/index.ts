@@ -11,16 +11,14 @@ const app = new PIXI.Application({
 
 document.body.appendChild(app.view);
 
-PIXI.Loader.shared
-	.add('barramundi-fish', './resources/barramundi-fish.glb')
-	.load((_, resources) => {
-	  // this fails
-		// @ts-ignore
-    app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
+PIXI.Loader.shared.add('barramundi-fish', './resources/barramundi-fish.glb').load((_, resources) => {
+	// this fails
+	// @ts-ignore
+	app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
 
-    // this works
-    // setTimeout(() => {
-    //   // @ts-ignore
-    //   app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
-    // }, 100);
-	});
+	// this works
+	// setTimeout(() => {
+	// 	// @ts-ignore
+	// 	app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
+	// }, 100);
+});
