@@ -1,24 +1,27 @@
 import * as PIXI from 'pixi.js';
-import { Model } from 'pixi3d';
+import { CameraOrbitControl, Color, Cubemap, ImageBasedLighting, LightingEnvironment, Model } from 'pixi3d';
 
 const app = new PIXI.Application({
 	width: 600,
 	height: 400,
 	backgroundColor: 0x1099bb,
-	resolution: window.devicePixelRatio || 1,
 	sharedTicker: true,
 });
 
+// change the value to 1, model will appear
+PIXI.settings.RESOLUTION = 2;
+
 document.body.appendChild(app.view);
 
-PIXI.Loader.shared.add('barramundi-fish', './resources/barramundi-fish.glb').load((_, resources) => {
-	// this fails
-	// @ts-ignore
-	app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
+new CameraOrbitControl(app.view);
 
-	// this works
-	// setTimeout(() => {
-	// 	// @ts-ignore
-	// 	app.stage.addChild(Model.from(resources['barramundi-fish'].gltf));
-	// }, 100);
+// setup lights
+LightingEnvironment.main.imageBasedLighting = new ImageBasedLighting(
+  Cubemap.fromColors(new Color(0.8, 0.8, 0.8, 1)),
+  Cubemap.fromColors(new Color(0))
+);
+
+PIXI.Loader.shared.add('BrainStem', './resources/BrainStem.glb').load((_, resources) => {
+	// @ts-ignore
+	app.stage.addChild(Model.from(resources['BrainStem'].gltf));
 });
