@@ -21,7 +21,11 @@ LightingEnvironment.main.imageBasedLighting = new ImageBasedLighting(
   Cubemap.fromColors(new Color(0))
 );
 
-PIXI.Loader.shared.add('BrainStem', './resources/BrainStem.glb').load((_, resources) => {
-	// @ts-ignore
-	app.stage.addChild(Model.from(resources['BrainStem'].gltf));
+PIXI.Loader.shared.add('Soldier', './resources/Soldier.glb').load((_, resources) => {
+  // @ts-ignore
+  const model = Model.from(resources['Soldier'].gltf);
+  model.animations[3].loop = true;
+  model.animations[3].play();
+  // @ts-ignore
+	app.stage.addChild(model);
 });
