@@ -9,7 +9,7 @@ const app = new PIXI.Application({
 });
 
 // change the value to 1, model will appear
-PIXI.settings.RESOLUTION = 2;
+PIXI.settings.RESOLUTION = 1;
 
 document.body.appendChild(app.view);
 
