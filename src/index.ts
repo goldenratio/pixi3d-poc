@@ -25,10 +25,10 @@ PIXI.Loader.shared
 
     // uncomment this model to see it on screen
     // @ts-ignore
-    // const model = Model.from(resources['Soldier'].gltf);
+    const model = Model.from(resources['Soldier'].gltf);
 
     // @ts-ignore
-    const model = Model.from(resources['SoldierOptimized'].gltf);
+    // const model = Model.from(resources['SoldierOptimized'].gltf);
 
     model.animations[3].loop = true;
     model.animations[3].play();
